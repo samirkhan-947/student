@@ -49,12 +49,15 @@ import { MatTableModule } from '@angular/material/table';
 import { StudentsComponent } from './students/students.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ViewStudentComponent } from './view-student/view-student.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavComponent,
-    StudentsComponent
+    StudentsComponent,
+    ViewStudentComponent
   ],
   imports: [
     FormsModule,
@@ -100,7 +103,8 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

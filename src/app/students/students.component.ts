@@ -16,14 +16,14 @@ export class StudentsComponent implements OnInit{
   constructor(private sudentServices:SudentService){}
 
   students:Student[] =[];
-  displayedColumns: string[] = ['firstName', 'lastName', 'dateOfBirth', 'Email','Mobile','gender'];
+  displayedColumns: string[] = ['firstName', 'lastName', 'dateOfBirth', 'Email','Mobile','gender','edit'];
   datasource:MatTableDataSource<Student> =new MatTableDataSource<Student>();
 
   @ViewChild(MatPaginator) matPaginator! :MatPaginator
   @ViewChild(MatSort) sort!: MatSort;
   filterstring ='';
   ngOnInit(): void {
-    this.sudentServices.getStudent().subscribe(
+    this.sudentServices.getStudents().subscribe(
       (success)=>{
       this.students =success;
       this.datasource = new  MatTableDataSource<Student>(this.students);
